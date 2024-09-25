@@ -78,10 +78,8 @@ def generate_canvas_image():
     image_width = canvas_size[0] * pixel_size + pixel_size
     image_height = canvas_size[1] * pixel_size + pixel_size
 
-    # Using NumPy array for better performance in canvas operations
-    image_array = np.ones((image_height, image_width, 3), dtype=np.uint8) * 255  # Start with a white background
+    image_array = np.ones((image_height, image_width, 3), dtype=np.uint8) * 255
 
-    # Draw the canvas pixels
     for y in range(canvas_size[1]):
         for x in range(canvas_size[0]):
             color = canvas[y][x]
@@ -93,7 +91,6 @@ def generate_canvas_image():
             y_end = y_start + pixel_size
             image_array[y_start:y_end, x_start:x_end] = color
 
-    # Draw grid lines
     for i in range(0, canvas_size[0] + 1):
         x_line = pixel_size + i * pixel_size
         image_array[:, x_line:x_line + 1] = gridColor
@@ -102,11 +99,9 @@ def generate_canvas_image():
         y_line = pixel_size + i * pixel_size
         image_array[y_line:y_line + 1, :] = gridColor
 
-    # Create Image from array
     image = Image.fromarray(image_array, 'RGB')
     draw = ImageDraw.Draw(image)
 
-    # Draw coordinates
     font = ImageFont.load_default()
     for i in range(canvas_size[0]):
         text = str(i)
