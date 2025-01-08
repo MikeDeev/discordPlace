@@ -3,10 +3,10 @@ d/place is a recreation of r/place in discord. This is my first discord bot so i
 
 ## Setup
 
-1. Put your discord token in `token.json`, should look something like this:
+1. Create a file called `token.json`, and then add to it this:
 ```
 {
-    "token": "YOUR TOKEN"
+    "token": "YOUR BOT TOKEN"
 }
 ```
 2. ``` pip install -r requirements.txt ```
